@@ -1,0 +1,43 @@
+<!--
+<div *ngFor="let movie of movies"
+ id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="http://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}"
+        class="d-block w-100" alt="...">
+        <p>{{ movie.title }}</p>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>-->
+
+<div class="container animated fadeIn fast">
+    <br>
+    <h1>In theaters</h1>
+    
+    <button routerLink="/search" 
+                  class="btn btn-outline-success col-mr-2" 
+                  type="submit">
+            Search Movie
+    </button>
+    
+    <hr>
+    <div class="row">
+       <div 
+       class="card" style="width: 18rem;" *ngFor="let movie of movies">
+           <a [routerLink]="['/movie', movie.id]">
+               <img style="height: 400px;" src="http://image.tmdb.org/t/p/w500{{ movie.poster_path }}" class="card-img-top" alt="...">
+           </a>   
+       </div>
+    </div>
+    
+    
+    
+</div>

@@ -1,0 +1,13 @@
+<div class="container animated fadeIn fast">
+
+<br>
+<h1>Popular</h1>
+<hr>
+<div class="row" >
+    <div class="card" style="width: 18rem;" *ngFor="let popular of populars">
+        <a [routerLink]="['/movie', popular.id]">
+            <img src="http://image.tmdb.org/t/p/w500{{ popular.poster_path }}" class="card-img-top" alt=".. .">
+        </a>
+    </div>
+</div>
+</div>

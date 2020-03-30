@@ -1,0 +1,27 @@
+<div class="container main-container animated fadeIn fast">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <h2>Search</h2>
+                <br>
+                <input [(ngModel)]="search"
+                       name="search"
+                       (keyup.enter)="searchtvShow()"
+                       placeholder="Search a Tv Show and press enter"
+                       class="form-control"
+                       type="text">
+            </div>
+        </div>
+        <div class="container animated fadeIn fast">
+            <div class="card-columns">
+                <div class="card puntero" *ngFor="let tvshow of movieService.tvShows" [routerLink]="['/tvshow', tvshow.id]" routerLinkActive="router-link-active" >
+                  <img src="http://image.tmdb.org/t/p/w500{{ tvshow.poster_path }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ tvshow.title }}</h5>
+                    <p class="card-text">{{ tvshow.overview | slice:0:200 }}...</p>
+                  </div>
+                </div>
+        </div>
+    </div>
+    </div>
+</div>

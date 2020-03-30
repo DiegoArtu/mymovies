@@ -1,0 +1,31 @@
+
+<div class="container animated fadeIn fast">
+        <br>
+        <h1>Upcoming!</h1>
+        <hr>
+        <div class="row">
+           <div 
+           class="card" style="width: 18rem;" *ngFor="let upcoming of upcomings">
+               <a [routerLink]="['/movie', upcoming.id]">
+                   <img src="http://image.tmdb.org/t/p/w500{{ upcoming.poster_path }}" class="card-img-top" alt="...">
+               </a>   
+           </div>
+        </div>
+        
+</div>
+<!--
+<div *ngIf="!upcomings" class="alert alert-warning text-center mt-3">
+    <p>
+        <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+    <h4 class="alert-warning">Sorry!</h4>
+    <p>No information</p>
+</div>
+
+<div *ngIf="loading" class="alert alert-info text-center mt-3">
+    <h4 class="alert-heading">Loading...</h4>
+    <p>
+        <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">Wait please</p>
+</div>-->

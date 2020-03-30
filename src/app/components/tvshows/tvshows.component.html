@@ -1,0 +1,21 @@
+
+<div class="container animated fadeIn fast">
+    <br>
+    <h1>On TV</h1>
+    
+        <button routerLink="/searchtvshow" 
+        class="btn btn-outline-success" 
+        type="submit">Search Tv show</button>
+    
+    
+          <hr>
+    <div class="row">
+       <div 
+       class="card" style="width: 18rem;" *ngFor="let tvshow of tvShows">
+           <a [routerLink]="['/tvshow', tvshow.id]">
+               <img style="height: 400px;" src="http://image.tmdb.org/t/p/w500{{ tvshow.poster_path }}" class="card-img-top" alt="...">
+           </a>   
+       </div>
+    </div>
+</div>
+

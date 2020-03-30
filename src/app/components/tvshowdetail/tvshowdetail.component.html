@@ -1,0 +1,82 @@
+<br>
+<div class="container main-container animated fadeIn faster">
+    <h1>{{ tvShowdetail.name }}</h1>
+
+    <div class="row">
+        <div class="col-md-5">
+            <img class="img-thumbnail img-fluid"
+            src="http://image.tmdb.org/t/p/w500{{ tvShowdetail.poster_path }}" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-md-7">
+            <h3>Sinopsis</h3>
+            <hr>
+            <p class="text-justify">
+                {{ tvShowdetail.overview }}
+            </p>
+            <br>
+            <h5>
+                Created by
+            </h5>
+            <div class="col-md-15">
+                <img style="height: 100px;" src="http://image.tmdb.org/t/p/w500{{ tvShowdetail.created_by[0].profile_path }}">
+            </div>
+            <p>{{ tvShowdetail.created_by[0].name }}</p>
+
+            <ul>
+                
+                    <p>
+                        Number of seasons: <span class="badge badge-dark">{{ tvShowdetail.number_of_seasons }}</span>
+                    </p>
+
+                    <p>
+                        Number of episodes: <span class="badge badge-light">{{ tvShowdetail.number_of_episodes }}</span>
+                    </p>
+        
+                    <p>
+                        Popularity: <span class="badge badge-primary">{{ tvShowdetail.popularity }}</span>
+                    </p>
+                    <p>
+                        Vote count: <span class="badge badge-warning">{{ tvShowdetail.vote_count }}</span>
+                    </p>
+                    <p>
+                        Vote average: <span class="badge badge-success">{{ tvShowdetail.vote_average }}</span>
+                    </p>
+                    <p>
+                        Original language: <span class="badge badge-secondary">{{ tvShowdetail.original_language }}</span>
+                    </p>
+                 </ul>
+        </div>
+    </div>
+
+    <br>
+
+    <h3>Seasons</h3>
+
+    <ul *ngFor="let season of seasons">
+        
+            <li><b>{{ season.name }}</b><span> ({{ season.episode_count }} episodes)</span></li>
+            <img *ngIf="season.poster_path" style="height: 150px;" src="http://image.tmdb.org/t/p/w500{{ season.poster_path }}">
+            <p *ngIf="season.overview">{{ season.overview }}</p>
+            <hr>
+        
+    </ul>
+
+    <br>
+
+    <h3>Cast</h3>
+
+    <div class="row">
+        <div class="card" style="width: 11rem;" *ngFor="let cast of tvCasts; let i = index">
+            <div class="container" >
+                    <img style="height: 250px; width: 150px; margin-top: 5px;" class="card-img-top" *ngIf="cast.profile_path" src="http://image.tmdb.org/t/p/w500{{ cast.profile_path }}" alt="Card image cap">
+                    <img style="height: 250px; width: 150px; margin-top: 5px;" class="card-img-top" *ngIf="!cast.profile_path" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGrc06HR-Kr_Ru_R2-kHNeqVEhYJgCnzVluttNlO4xSKiREYvz" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ cast.name }}</h5>
+                      <p class="card-text">{{ cast.character }}</p>
+                      <a href="#"  class="btn btn-primary">Go somewhere</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</div>
