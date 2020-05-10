@@ -1,19 +1,30 @@
 
+<app-carousel-tvshow></app-carousel-tvshow>
+<br>
+<br>
 <div class="container animated fadeIn fast">
+
     <br>
-    <h1>On TV</h1>
-    
+    <div class="titles">
         <button routerLink="/searchtvshow" 
         class="btn btn-outline-success" 
         type="submit">Search Tv show</button>
+        
+        <h1>On TV</h1>
+    </div>
     
+        
     
           <hr>
     <div class="row">
        <div 
        class="card" style="width: 18rem;" *ngFor="let tvshow of tvShows">
            <a [routerLink]="['/tvshow', tvshow.id]">
-               <img style="height: 400px;" src="http://image.tmdb.org/t/p/w500{{ tvshow.poster_path }}" class="card-img-top" alt="...">
+               <img *ngIf="tvshow.poster_path" style="height: 400px;" src="http://image.tmdb.org/t/p/w500{{ tvshow.poster_path }}" class="card-img-top" alt="..." title="{{tvshow.title}}">
+               <div *ngIf="!tvshow.poster_path">
+                    <img  style="height: 400px;" src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" class="card-img-top" alt="...">
+                    <p>{{tvshow.title}}</p>
+                </div>
            </a>   
        </div>
     </div>

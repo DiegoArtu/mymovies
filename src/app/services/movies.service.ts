@@ -48,6 +48,12 @@ export class MoviesService {
     ));
   }
 
+  getSimilarMovie(id:string){
+    let url = `${ this.urlMoviedb }/movie/${id}/similar?api_key=${ this.apiKey }&language=en-US&page=1`;
+
+    return this.http.get(url).pipe( map( (resp:any) => resp.results ) );
+  }
+
   getActors(id:string){
 
     let url = `${ this.urlMoviedb }/movie/${id}/credits?api_key=${ this.apiKey }`;
@@ -93,6 +99,13 @@ export class MoviesService {
 
   }
 
+  getTvPopular(){
+
+    let url = `${ this.urlMoviedb }/tv/popular?api_key=${ this.apiKey }&language=en-US&page=1`;
+
+    return this.http.get( url ).pipe( map( (resp:any) => resp.results) );
+  }
+
   searchTvShow(text:string){
 
     let url = `${ this.urlMoviedb }/search/tv?api_key=${ this.apiKey }&language=en-US&query=${ text }&page=1`;
@@ -103,6 +116,28 @@ export class MoviesService {
       return resp.results 
     }) );
 
+  }
+
+  getPerson(id:string){
+
+    let url = `${ this.urlMoviedb }/person/${ id }?api_key=${ this.apiKey }&language=en-US`;
+
+    return this.http.get( url ).pipe( map( (resp:any) => resp) )
+
+  }
+
+  getPersonMovieCredits(id:string){
+
+    let url = `${ this.urlMoviedb }/person/${ id }/movie_credits?api_key=${ this.apiKey }&language=en-US`;
+
+    return this.http.get( url ).pipe( map( (resp:any) => resp.cast) )
+  }
+
+  getPersonTvShowCredits(id:string){
+
+    let url = `${ this.urlMoviedb }/person/${ id }/tv_credits?api_key=${ this.apiKey }&language=en-US`;
+
+    return this.http.get( url ).pipe( map( (resp:any) => resp.cast) )
   }
 
 

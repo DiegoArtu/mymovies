@@ -44,6 +44,7 @@ export class TvshowdetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scroll(0,0);
   }
 
 }

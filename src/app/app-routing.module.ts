@@ -11,18 +11,20 @@ import { TvshowsComponent } from './components/tvshows/tvshows.component';
 import { SearchtvshowComponent } from './components/searchtvshow/searchtvshow.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { PersondetailComponent } from './components/persondetail/persondetail.component';
 
 const routes:Routes = [
-    { path: 'movies', component: MoviesComponent },
-    { path: 'movie/:id', component: MoviedetailComponent },
-    { path: 'tvshows', component: TvshowsComponent },
-    { path: 'tvshow/:id', component: TvshowdetailComponent },
-    { path: 'populars' , component: PopularsComponent },
-    { path: 'upcoming' , component: UpcomingComponent },
-    { path: 'search' , component: SearchComponent },
+    { path: 'movies',       component: MoviesComponent },
+    { path: 'movie/:id',    component: MoviedetailComponent },
+    { path: 'person/:id',   component: PersondetailComponent },
+    { path: 'tvshows',      component: TvshowsComponent },
+    { path: 'tvshow/:id',   component: TvshowdetailComponent },
+    { path: 'populars' ,    component: PopularsComponent },
+    { path: 'upcoming' ,    component: UpcomingComponent },
+    { path: 'search' ,      component: SearchComponent },
     { path: 'searchtvshow', component: SearchtvshowComponent },
-    { path: 'login', component: SigninComponent },
-    { path: 'signup', component: SignupComponent }, 
+    { path: 'login',        component: SigninComponent },
+    { path: 'signup',       component: SignupComponent }, 
     { path: '**', pathMatch: 'full', redirectTo: 'movies' }
 ];
 

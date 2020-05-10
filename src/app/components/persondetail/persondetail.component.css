@@ -1,3 +1,11 @@
+p{
+    font-size: 20px;
+}
+
+i{
+    font-size: 20px;
+}
+
 .cast .cont {
     align-items: center;
     position: relative;    
@@ -23,8 +31,4 @@
 .card{
     border: black;
     margin-bottom: 5px;
-}
-
-.row img{
-    height: 600px;
 }

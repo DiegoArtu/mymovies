@@ -22,6 +22,9 @@ import { SearchtvshowComponent } from './components/searchtvshow/searchtvshow.co
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CarouselTvshowComponent } from './components/carousel-tvshow/carousel-tvshow.component';
+import { PersondetailComponent } from './components/persondetail/persondetail.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { FooterComponent } from './components/footer/footer.component';
     SearchtvshowComponent,
     SigninComponent,
     SignupComponent,
-    FooterComponent
+    FooterComponent,
+    CarouselComponent,
+    CarouselTvshowComponent,
+    PersondetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,12 @@
 body{
+  background-color: rgb(24, 24, 24);
   padding-bottom: 200px;
+  color: white;
 }
+
+/*app-navbar{
+  position: inherit;
+}*/
 
 .main-container{
   margin-top: 40px;

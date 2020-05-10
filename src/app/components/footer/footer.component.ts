@@ -8,14 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   load:boolean = false
+  year;
 
   constructor() { }
 
   ngOnInit() {
 
-    setTimeout( ()=>{
-      this.load = true;
-    }, 100);
+    this.year = new Date().getFullYear();
+
+    //setTimeout( ()=>{
+    //  this.load = true;
+    //}, 100);
   }
 
 

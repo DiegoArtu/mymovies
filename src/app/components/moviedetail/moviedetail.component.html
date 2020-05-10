@@ -4,8 +4,9 @@
     
     <div class="row">
         <div class="col-md-5">
-            <img class="img-thumbnail img-fluid"
-            src="http://image.tmdb.org/t/p/w500{{ moviedetail.poster_path }}" class="img-fluid" alt="Responsive image">
+            <img *ngIf="moviedetail.poster_path" class="img-thumbnail img-fluid prin"
+            src="http://image.tmdb.org/t/p/w500{{ moviedetail.poster_path }}" class="img-fluid" alt="Responsive image" title="{{moviedetail.title}}">
+            <img *ngIf="!moviedetail.poster_path"  style="height: 400px;" src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" class="card-img-top" alt="...">
         </div>
 
         <div class="col-md-7">
@@ -20,7 +21,7 @@
                 {{ moviedetail.tagline }}.
             </p>
             <br>
-         <ul>
+         
             <p>
                 Popularity: <span class="badge badge-primary">{{ moviedetail.popularity }}</span>
             </p>
@@ -33,35 +34,75 @@
             <p>
                 Original language: <span class="badge badge-secondary">{{ moviedetail.original_language }}</span>
             </p>
-         </ul>
+         
         </div>
     </div>
     <hr>
     <br>
 
-    <h3>Cast</h3>
+    
 
-    <div class="row">
-        <div class="card" style="width: 11rem;" *ngFor="let cast of casts; let i = index">
-            <div class="container" >
-                    <img style="height: 250px; width: 150px; margin-top: 5px;" class="card-img-top" *ngIf="cast.profile_path" src="http://image.tmdb.org/t/p/w500{{ cast.profile_path }}" alt="Card image cap">
-                    <img style="height: 250px; width: 150px; margin-top: 5px;" class="card-img-top" *ngIf="!cast.profile_path" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGrc06HR-Kr_Ru_R2-kHNeqVEhYJgCnzVluttNlO4xSKiREYvz" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ cast.name }}</h5>
-                      <p class="card-text">{{ cast.character }}</p>
-                      <a href="#"  class="btn btn-primary">Go somewhere</a>
+    <div class="cast">
+        <h3>Cast</h3>
+            <div class="cont">
+                <div class="container" *ngFor="let cast of casts; let i = index">
+                    <div class="card" style="height: 400px; width: 200px;">
+                        <img [routerLink]="['/person', cast.id]"
+                             class="card-img-top puntero" 
+                             *ngIf="cast.profile_path" 
+                             src="http://image.tmdb.org/t/p/w500{{ cast.profile_path }}" alt="{{ cast.name }}">
+                        <img  
+                            class="card-img-top none" 
+                            *ngIf="!cast.profile_path" 
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGrc06HR-Kr_Ru_R2-kHNeqVEhYJgCnzVluttNlO4xSKiREYvz" alt="Card image cap">
+                        <div class="card-body">
+                          <h6 class="card-title">{{ cast.name }}</h6>
+                          <p class="card-text">{{ cast.character }}</p>
+                        </div>
                     </div>
+                </div>
+            </div>                                                                                          
+    </div>
+<hr>
+    <br>
+    <div *ngIf="prcompany" class="prodcomp">
+            <h4>Production Companies</h4>
+            <br>
+            <div class="row">
+                <div class="mr-5 mt-5" *ngFor="let prcomps of prcompany">
+                    <div class="card">
+                    <img *ngIf="prcomps.logo_path" src="http://image.tmdb.org/t/p/w200{{ prcomps.logo_path }}">
+                    <p *ngIf="prcomps.logo_path">{{ prcomps.name }}</p>
+                    </div>
+                </div>
             </div>
-        </div>
+    </div>
+    
+    
+    <hr>
+    <br>
+    <br>
+
+    <div class="cast">
+        <h3>Similar Movies</h3>
+            <div class="cont">
+                <div class="container" *ngFor="let similar of similars; let i = index">
+                    <div class="card puntero" style="height: 400px; width: 200px;">
+                        
+                        <img [routerLink]="['/movie', similar.id]" 
+                             class="card-img-top similar" 
+                             *ngIf="similar.poster_path" 
+                             src="http://image.tmdb.org/t/p/w500{{ similar.poster_path }}" alt="{{ similar.title }}" title="{{ similar.title }}">
+                        <img  
+                            class="card-img-top none similar" 
+                            *ngIf="!similar.poster_path" 
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGrc06HR-Kr_Ru_R2-kHNeqVEhYJgCnzVluttNlO4xSKiREYvz" alt="Card image cap">                    
+            
+                    </div>
+                    <h5>{{similar.title}}</h5>
+                </div>
+            </div>                                                                                          
     </div>
 
-    <br>
-    <h5>Production Companies</h5>
-    <br>
-    <div class="row">
-        <div class="mr-5 mt-5" *ngFor="let prcomps of prcompany">
-            <img *ngIf="prcomps.logo_path" src="http://image.tmdb.org/t/p/w200{{ prcomps.logo_path }}">
-            <p *ngIf="prcomps.logo_path">{{ prcomps.name }}</p>
-        </div>
-    </div>
+
 </div>

@@ -7,7 +7,8 @@
            <div 
            class="card" style="width: 18rem;" *ngFor="let upcoming of upcomings">
                <a [routerLink]="['/movie', upcoming.id]">
-                   <img src="http://image.tmdb.org/t/p/w500{{ upcoming.poster_path }}" class="card-img-top" alt="...">
+                   <img *ngIf="upcoming.poster_path" src="http://image.tmdb.org/t/p/w500{{ upcoming.poster_path }}" class="card-img-top" alt="..." title="{{upcoming.title}}">
+                   <img *ngIf="!upcoming.poster_path"  style="height: 400px;" src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" class="card-img-top" alt="...">
                </a>   
            </div>
         </div>

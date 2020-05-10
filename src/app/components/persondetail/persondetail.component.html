@@ -1,0 +1,81 @@
+<div class="container main-container animated fadeIn fast">
+        
+        
+        <div class="row">
+            <div class="col-md-5">
+                <img *ngIf="person.profile_path" class="img-thumbnail img-fluid"
+                src="http://image.tmdb.org/t/p/w500{{ person.profile_path }}" class="img-fluid" alt="Responsive image">
+                <img *ngIf="!person.profile_path"  style="height: 400px;" src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" class="card-img-top" alt="...">
+            </div>
+    
+            <div class="col-md-7">
+                    <h1>{{ person.name }} </h1>  
+                    <hr style="background-color: white;">         
+                
+                <h3>Biography</h3>
+                <br>
+                <i class="text-justify">
+                    {{ person.biography }}
+                </i>
+                <br>
+                <br>
+                <p>
+                    Birthday: {{person.birthday | date}}    
+                </p>
+                <p>
+                    Place of birth: {{ person.place_of_birth }}
+                </p>
+                <p>
+                    
+                </p>
+                <p>
+            
+                </p>
+            </div>
+        </div>
+
+<br>
+<br>
+    <div class="cast">
+            <h3>Movies</h3>
+                <div class="cont">
+                    <div class="container" *ngFor="let personmc of personmcs; let i = index">
+                        <div class="card puntero" style="height: 400px; width: 200px;">
+                            
+                            <img [routerLink]="['/movie', personmc.id]"
+                                 class="card-img-top similar" 
+                                 *ngIf="personmc.poster_path" 
+                                 src="http://image.tmdb.org/t/p/w500{{ personmc.poster_path }}" alt="{{ personmc.title }}" title="{{personmc.title}}">
+                            <img [routerLink]="['/movie', personmc.id]"
+                                class="card-img-top none similar" 
+                                *ngIf="!personmc.poster_path" 
+                                src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" alt="Card image cap" title="{{personmc.title}}">                    
+                
+                        </div>
+                        <h5>{{personmc.title}}</h5>
+                    </div>
+                </div>                                                                                          
+        </div>
+        <br>
+    <div class="cast">
+        <h3>TV Shows</h3>
+            <div class="cont">
+                <div class="container" *ngFor="let persontvc of persontvcs; let i = index">
+                    <div class="card puntero" style="height: 400px; width: 200px;">
+                        
+                        <img [routerLink]="['/tvshow', persontvc.id]"
+                             class="card-img-top similar" 
+                             *ngIf="persontvc.poster_path" 
+                             src="http://image.tmdb.org/t/p/w500{{ persontvc.poster_path }}" alt="{{ persontvc.title }}" title="{{persontvc.name}}">
+                        <img [routerLink]="['/tvshow', persontvc.id]"
+                            class="card-img-top none similar" 
+                            *ngIf="!persontvc.poster_path" 
+                            src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" alt="Card image cap" title="{{persontvc.name}}">                    
+            
+                    </div>
+                    <h5>{{persontvc.name}}</h5>
+                </div>
+            </div>                                                                                          
+    </div>
+            
+</div>    

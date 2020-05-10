@@ -15,9 +15,10 @@
         <div class="container animated fadeIn fast">
             <div class="card-columns">
                 <div class="card puntero" *ngFor="let tvshow of movieService.tvShows" [routerLink]="['/tvshow', tvshow.id]" routerLinkActive="router-link-active" >
-                  <img src="http://image.tmdb.org/t/p/w500{{ tvshow.poster_path }}" class="card-img-top" alt="...">
+                  <img *ngIf="tvshow.poster_path" src="http://image.tmdb.org/t/p/w500{{ tvshow.poster_path }}" class="card-img-top" alt="...">
+                  <img *ngIf="!tvshow.poster_path" style="height: 400px;" src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title">{{ tvshow.title }}</h5>
+                    <h5 class="card-title">{{ tvshow.name }}</h5>
                     <p class="card-text">{{ tvshow.overview | slice:0:200 }}...</p>
                   </div>
                 </div>
