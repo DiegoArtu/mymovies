@@ -1,25 +1,27 @@
-<div class="container main-container animated fadeIn fast">
+<div class=" main-container animated fadeIn fast">
     <div class="row">
-        <div class="col-md-12">
+        <div class="search-div">
             <div class="form-group">
-                <h1>Search</h1>
+                <h1>Search a Movie</h1>
                 <br>
                 <input [(ngModel)]="search"
                        name="search"
                        (keyup.enter)="searchMovie()"
                        placeholder="Search a Movie and press enter"
-                       class="form-control"
+                       class="input"
                        type="text">
             </div>
         </div>
 
-        
-
-        <div class="card-columns">
-                <div class="card puntero" *ngFor="let movie of movieService.movies" [routerLink]="['/movie', movie.id]" routerLinkActive="router-link-active" >
-                  <img *ngIf="movie.poster_path" src="http://image.tmdb.org/t/p/w500{{ movie.poster_path }}" class="card-img-top" alt="...">
-                  <img *ngIf="!movie.poster_path" style="height: 400px;" src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" class="card-img-top" alt="...">
-                </div>
+        <div class="content-search">
+            
+            <div class="card-columns">
+                
+                    <div class="card puntero" *ngFor="let movie of movieService.movies" [routerLink]="['/movie', movie.id]" routerLinkActive="router-link-active" >
+                      <img *ngIf="movie.poster_path" src="http://image.tmdb.org/t/p/w500{{ movie.poster_path }}" class="card-img-top" alt="...">
+                      <img *ngIf="!movie.poster_path" style="height: 400px;" src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" class="card-img-top" alt="...">
+                    </div>
+            </div>
         </div>
     </div>
 </div>

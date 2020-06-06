@@ -9,6 +9,8 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class MoviesComponent implements OnInit {
 
   movies :any;
+  populars:any;
+  upcomings:any;
   tvShows:any;
   url    :string = 'http://image.tmdb.org/t/p/w500';
 
@@ -18,9 +20,18 @@ export class MoviesComponent implements OnInit {
 
     //Cinema
     this.moviesService.getNowPlaying().subscribe( (resp: any) => {
-      console.log(resp);
+      
       this.movies = resp;
-    })
+    });
+
+    this.moviesService.getPopulars().subscribe( (resp:any) => {
+      
+      this.populars = resp;
+    });
+    
+    this.moviesService.getUpcoming().subscribe( (resp:any) => {
+      this.upcomings = resp;
+    });
   }
 
 }

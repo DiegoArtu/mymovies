@@ -9,6 +9,8 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class TvshowsComponent implements OnInit {
 
   tvShows:any;
+  tvpopulars:any;
+  toprateds:any;
 
   constructor(
     public moviesService: MoviesService
@@ -19,9 +21,17 @@ export class TvshowsComponent implements OnInit {
     //TVshows
     this.moviesService.getTvOnTheAir().subscribe(
       (resp:any) =>{
-        console.log(resp);
+       
         this.tvShows = resp;
-      })
+      });
+
+    this.moviesService.getTvPopular().subscribe( (resp:any) => {
+      this.tvpopulars = resp;
+    });
+
+    this.moviesService.getTvTopRated().subscribe( (resp:any) => {
+      this.toprateds = resp;
+    });
   }
 
 }

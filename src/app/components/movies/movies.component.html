@@ -5,36 +5,82 @@
 
 <br>
 <br>
-<div class="container animated fadeIn fast">
+<div class="content animated fadeIn fast">
     <br>
-    <div class="titles">
+    <div class="titles row">
+        <h1 class="col-10">Now Playing</h1>
         
         <button routerLink="/search" 
-        class="btn btn-outline-success col-mr-2" 
+        class="btn btn-outline-success col-2" 
         type="submit">
         Search Movie
        </button>
        
-       <h1>Now Playing</h1>
     </div>
-    
-    
-    <hr>
-    <div class="row">
-       <div 
-       class="card" style="width: 18rem;" *ngFor="let movie of movies">
-           <a [routerLink]="['/movie', movie.id]">
-               <img *ngIf="movie.poster_path" style="height: 400px;" src="http://image.tmdb.org/t/p/w500{{ movie.poster_path }}" class="card-img-top" alt="..." title="{{movie.title}}">
-               <div *ngIf="!movie.poster_path">
-                   <img  style="height: 400px;" src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" class="card-img-top" alt="...">
-                   <p>{{movie.title}}</p>
-               </div>
-           </a>
-        </div>
+
+    <div class="cast">
+        
+        <div class="cont">
+            <div class="container" *ngFor="let movie of movies; let i = index">
+                <div class="card puntero" style="height: 100%; width: 18rem;">
+                    
+                    <img [routerLink]="['/movie', movie.id]" 
+                         class="card-img-top similar" 
+                         *ngIf="movie.poster_path" 
+                         src="http://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" title="{{ movie.title }}">
+                    <img  
+                        class="card-img-top none movies" 
+                        *ngIf="!movie.poster_path" 
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGrc06HR-Kr_Ru_R2-kHNeqVEhYJgCnzVluttNlO4xSKiREYvz" alt="Card image cap">                    
+        
+                </div>
+                <h5>{{movie.title}}</h5>
+            </div>
+        </div> 
     </div>
-    
-    
+
+    <br><br><br><br><br><br><br><br>
+    <div class="cast">
+        <h1>Populars</h1>
+        <div class="cont">
+            <div class="container" *ngFor="let popular of populars; let i = index">
+                <div class="card puntero" style="height: 100%; width: 18rem;">
+                    
+                    <img [routerLink]="['/movie', popular.id]" 
+                         class="card-img-top similar" 
+                         *ngIf="popular.poster_path" 
+                         src="http://image.tmdb.org/t/p/w500{{ popular.poster_path }}" alt="{{ popular.title }}" title="{{ popular.title }}">
+                    <img  
+                        class="card-img-top none movies" 
+                        *ngIf="!popular.poster_path" 
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGrc06HR-Kr_Ru_R2-kHNeqVEhYJgCnzVluttNlO4xSKiREYvz" alt="Card image cap">                    
+        
+                </div>
+                <h5>{{popular.title}}</h5>
+            </div>
+        </div> 
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+    <div class="cast">
+        <h1>Upcoming!</h1>
+        <div class="cont">
+            <div class="container" *ngFor="let upcoming of upcomings; let i = index">
+                <div class="card puntero" style="height: 100%; width: 18rem;">
+                    
+                    <img [routerLink]="['/movie', upcoming.id]" 
+                         class="card-img-top similar" 
+                         *ngIf="upcoming.poster_path" 
+                         src="http://image.tmdb.org/t/p/w500{{ upcoming.poster_path }}" alt="{{ upcoming.title }}" title="{{ upcoming.title }}">
+                    <img  
+                        class="card-img-top none movies" 
+                        *ngIf="!upcoming.poster_path" 
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGrc06HR-Kr_Ru_R2-kHNeqVEhYJgCnzVluttNlO4xSKiREYvz" alt="Card image cap">                    
+        
+                </div>
+                <h5>{{upcoming.title}}</h5>
+            </div>
+        </div> 
+    </div>
     
 </div>
-<br>
-<app-footer class="animated fadeIn low"></app-footer>

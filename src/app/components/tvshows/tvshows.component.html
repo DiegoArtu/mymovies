@@ -2,31 +2,81 @@
 <app-carousel-tvshow></app-carousel-tvshow>
 <br>
 <br>
-<div class="container animated fadeIn fast">
+<div class="content animated fadeIn fast">
 
-    <br>
-    <div class="titles">
+    <div class="titles row">
+        <br>
+        <h1 class="col-10">On TV</h1>
+
         <button routerLink="/searchtvshow" 
-        class="btn btn-outline-success" 
+        class="btn btn-outline-success col-2" 
         type="submit">Search Tv show</button>
         
-        <h1>On TV</h1>
     </div>
-    
+    <div class="cast">
         
-    
-          <hr>
-    <div class="row">
-       <div 
-       class="card" style="width: 18rem;" *ngFor="let tvshow of tvShows">
-           <a [routerLink]="['/tvshow', tvshow.id]">
-               <img *ngIf="tvshow.poster_path" style="height: 400px;" src="http://image.tmdb.org/t/p/w500{{ tvshow.poster_path }}" class="card-img-top" alt="..." title="{{tvshow.title}}">
-               <div *ngIf="!tvshow.poster_path">
-                    <img  style="height: 400px;" src="https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg" class="card-img-top" alt="...">
-                    <p>{{tvshow.title}}</p>
+        <div class="cont">
+            <div class="container" *ngFor="let tvshow of tvShows; let i = index">
+                <div class="card puntero" style="height: 100%; width: 18rem;">
+                    
+                    <img [routerLink]="['/tvshow', tvshow.id]" 
+                         class="card-img-top similar" 
+                         *ngIf="tvshow.poster_path" 
+                         src="http://image.tmdb.org/t/p/w500{{ tvshow.poster_path }}" alt="{{ tvshow.name }}" title="{{ tvshow.name }}">
+                    <img  
+                        class="card-img-top none movies" 
+                        *ngIf="!tvshow.poster_path" 
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGrc06HR-Kr_Ru_R2-kHNeqVEhYJgCnzVluttNlO4xSKiREYvz" alt="Card image cap">                    
+        
                 </div>
-           </a>   
-       </div>
+                <h5>{{tvshow.name}}</h5>
+            </div>
+        </div> 
+    </div>
+
+    <br><br><br><br><br><br><br>
+    <div class="cast">
+        <h1>Populars</h1>
+        <div class="cont">
+            <div class="container" *ngFor="let tvpopular of tvpopulars; let i = index">
+                <div class="card puntero" style="height: 100%; width: 18rem;">
+                    
+                    <img [routerLink]="['/tvshow', tvpopular.id]" 
+                         class="card-img-top similar" 
+                         *ngIf="tvpopular.poster_path" 
+                         src="http://image.tmdb.org/t/p/w500{{ tvpopular.poster_path }}" alt="{{ tvpopular.name }}" title="{{ tvpopular.name }}">
+                    <img  
+                        class="card-img-top none movies" 
+                        *ngIf="!tvpopular.poster_path" 
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGrc06HR-Kr_Ru_R2-kHNeqVEhYJgCnzVluttNlO4xSKiREYvz" alt="Card image cap">                    
+        
+                </div>
+                <h5>{{tvpopular.name}}</h5>
+            </div>
+        </div> 
+    </div>
+
+
+    <br><br><br><br><br><br><br>
+    <div class="cast">
+        <h1>Top Rated</h1>
+        <div class="cont">
+            <div class="container" *ngFor="let toprated of toprateds; let i = index">
+                <div class="card puntero" style="height: 100%; width: 18rem;">
+                    
+                    <img [routerLink]="['/tvshow', toprated.id]" 
+                         class="card-img-top similar" 
+                         *ngIf="toprated.poster_path" 
+                         src="http://image.tmdb.org/t/p/w500{{ toprated.poster_path }}" alt="{{ toprated.name }}" title="{{ toprated.name }}">
+                    <img  
+                        class="card-img-top none movies" 
+                        *ngIf="!toprated.poster_path" 
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGrc06HR-Kr_Ru_R2-kHNeqVEhYJgCnzVluttNlO4xSKiREYvz" alt="Card image cap">                    
+        
+                </div>
+                <h5>{{toprated.name}}</h5>
+            </div>
+        </div> 
     </div>
 </div>
 

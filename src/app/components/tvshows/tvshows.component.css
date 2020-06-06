@@ -5,6 +5,39 @@
     border: black;
 } 
 
-.titles button {
-    margin-left: 70%;
+.content{
+    margin: auto;
+    padding: 50px;
+    width: 90%;
+    
+}
+
+.cast .cont {
+    align-items: center;
+    position: relative;    
+    overflow-x: scroll;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+}
+
+.container .card img {
+    height: 70%;
+}
+
+.card p, .card h6{
+    color: black;
+}
+
+.container .card  .movies {
+    height: 100%;
+}
+
+.card{
+    border: black;
+    margin-bottom: 5px;
+}
+
+.row img{
+    height: 600px;
 }

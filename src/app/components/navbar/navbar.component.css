@@ -1,9 +1,15 @@
 nav{
     background-color: rgb(24, 24, 24);
+    position: relative;
 }
 
 a{
     font-size: 20px;
+}
+
+h2{
+    color: lawngreen;
+    font-family: 'Lobster', cursive;
 }
 
 .navbar-brand{
@@ -14,3 +20,6 @@ li a {
     margin-right: 30px;
 }
 
+li a:hover{
+    color: lawngreen;
+}

@@ -1,25 +1,86 @@
-
-.form-container{
-
-    position: absolute;
-    top: 15vh;
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px 0px #000;
-    color:white;
-
+section{
+    margin: auto;
+    width: 90%;
+    height: 87vh;    
+    padding-top: 7%;
+    padding-right: 25%;
+    padding-left: 25%;
 }
 
-h2{
+.form-content{
+    border-radius: 20px;
+    display: grid;
+    text-align: start;
+    background-color: rgb(46, 44, 44);
+    /* box-shadow: 0 0 20px green; */
+    
+}
+
+.form-content .titles{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+    background-color:  rgb(24, 24, 24);
+}
+
+
+.form-content h1{
+    text-transform: uppercase;
+    margin-top: 40px;
     text-align: center;
-    color: white;
+    
 }
 
-label{
-    color: white;
+.form-content p{
+    margin-top: 10px;
+    text-align: center;
 }
 
-small{
-    color: thistle;
+hr{
+    
+    color: honeydew;
+}
+
+.form-inputs{
+    display: grid;
+    padding-top: 7%;
+    padding-bottom: 5%;
+    padding-left: 15%;
+    padding-right: 15%; 
+}
+
+.form-content input{
+    height: 60px;
+    
+    margin-bottom: 30px;
+    
+}
+
+.form-content .text{
+    border-radius: 10px;
+    font-size: 25px;
+    border: none;
+}
+
+.form-content label{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.button{
+    margin-left: 130px;
+    width: 50%;
+    color: white;
+    font-size: 35px;
+    margin-top: 30px;
+    background-color: rgb(24, 24, 24);
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    transition: all .5s ease;
+}
+
+.button:hover{
+    
+    background-color: rgb(58, 57, 57);
 }

@@ -83,6 +83,20 @@ export class MoviesService {
 
   }
 
+  getTvPopular(){
+
+    let url = `${ this.urlMoviedb }/tv/popular?api_key=${ this.apiKey }&language=en-US&page=1`;
+
+    return this.http.get( url ).pipe( map( (resp:any) => resp.results) );
+  }
+
+  getTvTopRated(){
+
+    let url = `${ this.urlMoviedb }/tv/top_rated?api_key=${ this.apiKey }&language=en-US&page=1`;
+
+    return this.http.get( url ).pipe( map( (resp:any) => resp.results) );
+  }
+
   getTvShow( id:string ){
 
     let url = `${ this.urlMoviedb }/tv/${ id }?api_key=${ this.apiKey }&language=en-US`;
@@ -97,13 +111,6 @@ export class MoviesService {
 
     return this.http.get( url ).pipe( map( (resp:any) => resp.cast) )
 
-  }
-
-  getTvPopular(){
-
-    let url = `${ this.urlMoviedb }/tv/popular?api_key=${ this.apiKey }&language=en-US&page=1`;
-
-    return this.http.get( url ).pipe( map( (resp:any) => resp.results) );
   }
 
   searchTvShow(text:string){
